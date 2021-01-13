@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: black;
+}
+
+.navbar-lewagon:hover {
+  box-shadow: 3px 3px 15px -8px #000;
+  transition: box-shadow .2s
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +13,31 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+  color: rgb(133, 138, 227);
+  transition: color .3s;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: rgb(133, 138, 227);
+}
+
+.dropdown-item {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.dropdown-item:hover {
+  color: #ff5d9b;
+  transition: color .3s;
 }
