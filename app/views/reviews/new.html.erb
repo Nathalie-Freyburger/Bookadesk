@@ -1,0 +1,17 @@
+<div class="banner-show-review">
+ <div class="container">
+  <div class="row">
+    <div class="col-6">
+
+    <h1>How was your experience ?</h1>
+
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

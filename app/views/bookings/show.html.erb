@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Your booking</h2>
+
+    <%if @office.photo.attached? %>
+      <%= cl_image_tag @office.photo.key %>
+    <% end %>
+
+    <ul>
+      <li>Office space: <%= @booking.office.name %></li>
+      <li>Rented from: <%= @booking.office.user.username %></li>
+      <p><%= link_to 'Delete', @booking, method: :delete, data: {confirm: "Do you REALY want to delete this booking?"}, class: "delete-btn" %></p>
+    </ul>
+
+  <p><%= link_to 'Add a review', new_booking_review_path(@booking), class: "review-btn" %></p>
+</div>
