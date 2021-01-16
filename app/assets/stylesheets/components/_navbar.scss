@@ -32,12 +32,12 @@
 }
 
 .dropdown-item {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.6);
   font-family: inherit;
   font-size: 13px;
 }
 
 .dropdown-item:hover {
-  color: #ff5d9b;
+  color: rgba(0, 0, 0, 0.8);
   transition: color .3s;
 }

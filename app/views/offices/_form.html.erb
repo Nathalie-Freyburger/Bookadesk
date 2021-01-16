@@ -1,0 +1,8 @@
+<%= simple_form_for @office do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Generate New Office', class: "btn btn-warning" %>
+<% end %>

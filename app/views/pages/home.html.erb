@@ -1,2 +1,24 @@
+<div class="banner">
+  <div class="container">
+      <h1>Find coworking spaces everywhere</h1>
+      <p>Choose from the best Coworking spaces in Paris, New York, San Francisco and Los Angeles. Compare and discover their culture and services. Find Coworking spaces near you, visit and book your office directly from The Desk platform.</p>
+      <div class="row search-row">
+        <div class="col-10">
+       <%= form_tag offices_path, method: :get do %>
+       <%= text_field_tag :query,
+        params[:query],
+        class: "form-control searchbar",
+        placeholder: "Find your coworking by name, address ..."
+       %>
+      </div>
+      <div class="col-2">
+      <%= submit_tag "Search", class: "login-btn" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-
+<div class="container">
+  <div class="row mt-5"><h2>Most recommanded Coworking spaces</h2></div>
+</div>

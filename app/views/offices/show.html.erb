@@ -1,0 +1,81 @@
+<div class="banner-show">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-n5">
+         <%= link_to "Go Back to officess' list", offices_path, class: "login-btn mt-5" %>
+         <br>
+         <% if policy(@office).edit? %>
+          <%= link_to "Edit Me!", edit_office_path(@office), class: "delete-btn" %>
+         <% end %>
+         <% if policy(@office).destroy? %>
+          <p> <%= link_to 'Delete me! ... wait ... WHAAAAT ?', @office, method: :delete, data: {confirm: "Do you REALY want to delete this Office?"}, class: 'delete-btn'%></p>
+        <% end %>
+        <div class="clash-card barbarian mt-5">
+          <div class="clash-card__image clash-card__image--barbarian">
+            <% if @office.photo.attached? %>
+            <%= cl_image_tag @office.photo.key, height: 252, width: 252, crop: :fill %>
+            <% else %>
+            <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+            <% end %>
+            </div>
+            <div class="clash-card__unit-name"><%= @office.name %></div>
+            <div class="clash-card__level clash-card__level--barbarian">Level <%= @office.level %></div>
+            <div class="clash-card__unit-description">
+              <%= @office.description %>
+            </div>
+            <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
+              <div class="one-third no-border">
+                <div id="price" class="stat"><%= @office.price %>€/d</div>
+              </div>
+            </div>
+        </div>
+      <%# if @pokemon.photo.attached? %> <%# background_url = cl_image_path @pokemon.photo.key, width: 300, height: 400, crop: :fill %>
+      <%# else %> <%# background_url = 'https://source.unsplash.com/300x400/?pokemon' %>
+      <%# end %>
+    </div>
+    <!-- ancien formulaire de réservation >
+    <div class="col-6 rounded d-flex justify-content-center align-items-center">
+      <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
+        <%= f.input :start_date, as: :date, class: "wd-100"%>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit 'Book office', class: "btn btn-warning" %>
+      <% end %>
+    </div> -->
+
+    <!-- Flatpickr -->
+    <div class="col-6 rounded justify-content-center align-items-center">
+      <h2>Book this <%= @office.name %></h2>
+      <div class="align-items-start d-flex">
+        <%= simple_form_for [@office, @office.bookings.new] do |f| %>
+          <%= f.input  :start_date, label: "Pick your dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none"} %>
+          <%= f.input  :end_date, as: :string, label: false, required: false, input_html: {id: "range_end", class: "d-none" } %>
+
+    <div
+      id="booking-form-div"
+      data-bookings="<%= @bookings_dates.to_json %>"
+    >
+    <p class="text-color">Book it for <span id="total-nights">0</span> days</p>
+    <p class="text-color">Total price: <span id="total-price">0</span> € </p>
+          <%= f.button :submit, "Catch it", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to office_path(@office) do %>
+        <button type="button" class="icon-close mt-3" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <% end %>
+  </div>
+
+
+
+
+    </div>
+
+</div>
+  <% @office.reviews.each do |review| %>
+    <p class="text-color"> Comment: <%= review.comment %> </p>
+    <p class="text-color"> Rating: <%= review.rating %> </p>
+    <p> <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Do you REALY want to delete this review?"}, class: 'delete-btn'%> </p>
+  <% end %>
+</div>

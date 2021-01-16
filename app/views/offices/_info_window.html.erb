@@ -1,0 +1,12 @@
+<h4></h4>
+<p></p>
+
+<div style="height: 100px;">
+  <% if office.photo.attached? %>
+    <%= cl_image_tag office.photo.key, height: 50, width: 50, crop: :fill %>
+  <% else %>
+    <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+  <% end %>
+    <h5 class="card-title"><%= office.name %></h5>
+    <h6 class="card-text"><%= office.address %></h6>
+</div>

@@ -20,6 +20,7 @@
 }
 .footer-links a:hover {
   opacity: 1;
+  transition: opacity .4s;
 }
 .footer .fa-heart {
   color: #D23333;
