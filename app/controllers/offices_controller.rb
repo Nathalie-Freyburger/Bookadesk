@@ -37,7 +37,7 @@ class OfficesController < ApplicationController
     authorize @office
 
     if @office.save
-      redirect_to @office, notice: 'Your office space was successfully created.'
+      redirect_to @office, notice: 'Your coworking space was successfully created.'
     else
       render :new
     end
